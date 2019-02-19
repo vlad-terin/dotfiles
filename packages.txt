@@ -1,0 +1,4 @@
+neovim
+ttf-iosevka-term
+chezmoi
+
