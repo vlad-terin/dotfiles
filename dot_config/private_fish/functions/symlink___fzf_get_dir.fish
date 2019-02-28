@@ -1,0 +1,1 @@
+/home/vlad/.local/share/omf/pkg/fzf/functions/__fzf_get_dir.fish

@@ -1,8 +1,0 @@
-open_with hh
-L
-open_with nvim
-search 
-open_with 
-rename .local
-delete
-
