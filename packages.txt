@@ -1,4 +1,0 @@
-chezmoi
-nerd-fonts-iosevka
-tlp-git
-ttf-iosevka-term
