@@ -1,5 +1,11 @@
 #!/usr/bin/fish
 
+alias r ranger
+alias w "feh --randomize --bg-fill ~/Pictures/wallpapers/*"
+abbr v nvim
+abbr k fkill
+abbr a todo.sh add
+
 # alias ag "ag --path-to-ignore ~/.ignore"
 set -U FZF_LEGACY_KEYBINDINGS 0
 
@@ -16,7 +22,7 @@ end
 function fish_greeting
 end
 
-function fag
+function f
   if not set -q argv[1]
     echo "No argument"
     return
@@ -28,11 +34,17 @@ function fag
   end
 end
 
+function fkill
+  set -l pid
+  set pid (ps -ef | sed 1d | fzf -m | awk '{print $2}')
+  echo $pid | xargs kill -9
+end
+
 function vf
 	nvim (ag . --hidden | fzf)
 end
 
-# fzf 
+# fzf
 function fzf-bcd-widget -d 'cd backwards'
 	pwd | awk -v RS=/ '/\n/ {exit} {p=p $0 "/"; print p}' | tac | eval (__fzfcmd) +m --select-1 --exit-0 $FZF_BCD_OPTS | read -l result
 	[ "$result" ]; and cd $result
