@@ -1,20 +1,24 @@
 #!/usr/bin/fish
 
+set -U PATH '/home/axi/.fzf/bin' '/usr/local/bin' '/usr/bin' '/bin' '/usr/local/sbin' '/usr/bin/site_perl' '/usr/bin/vendor_perl' '/usr/bin/core_perl' '~/.scripts/i3cmds/'
+
+
 alias r ranger
 alias w "feh --randomize --bg-fill ~/Pictures/wallpapers/*"
 abbr v nvim
 abbr k fkill
 abbr a todo.sh add
+abbr y "echo \"\" >> yay"
 
 # alias ag "ag --path-to-ignore ~/.ignore"
 set -U FZF_LEGACY_KEYBINDINGS 0
 
 
-#set -U FZF_DEFAULT_COMMAND "ag --hidden --ignore .git -l -g """
-#set -U FZF_FIND_FILE_COMMAND "find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
-#set -U FZF_FIND_FILE_COMMAND "ag -l --hidden --ignore .git . \$dir 2> /dev/null """
-#set -U FZF_CTRL_T_COMMAND "find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
-#set -U FZF_OPEN_COMMAND "find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
+set -U FZF_DEFAULT_COMMAND "ag --hidden --ignore .git -l -g """
+set -U FZF_FIND_FILE_COMMAND "find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
+set -U FZF_FIND_FILE_COMMAND "ag -l --hidden --ignore .git . \$dir 2> /dev/null """
+set -U FZF_CTRL_T_COMMAND "find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
+set -U FZF_OPEN_COMMAND "find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
 
 fish_vi_key_bindings
 function fish_mode_prompt
@@ -36,7 +40,7 @@ end
 
 function fkill
   set -l pid
-  set pid (ps -ef | sed 1d | fzf -m | awk '{print $2}')
+  set pid (ps -ef | sed 1d | awk '{print $2, $8}' | fzf -m | awk '{print $1}')
   echo $pid | xargs kill -9
 end
 

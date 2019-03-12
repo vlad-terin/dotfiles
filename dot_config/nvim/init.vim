@@ -15,7 +15,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'godlygeek/tabular'
 Plug 'w0rp/ale'
 Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'potatoesmaster/i3-vim-syntax'
 Plug 'tpope/vim-commentary'
 Plug 'bogado/file-line'
@@ -52,7 +51,6 @@ nmap <Leader>M :Maps<CR>
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 map <C-h> <C-w>
-inoremap jj <ESC>
 set number relativenumber
 set encoding=utf-8
 syntax on
@@ -104,6 +102,7 @@ map <A-;> :Files<CR>
 autocmd FileType html setlocal ts=2 sts=2 sw=2
 autocmd FileType ruby setlocal ts=2 sts=2 sw=2
 autocmd FileType javascript setlocal ts=4 sts=4 sw=4
+map <leader>l :Limelight!<CR>
 
 " provide hjkl movements in Insert mode via the <Alt> modifier key
 
