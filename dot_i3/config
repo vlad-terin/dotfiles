@@ -1,6 +1,5 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-test
 
 # Entr commands to listen to files for syncing dotfiles and packages
 exec_always --no-startup-id echo .i3/config | entr chezmoi add .i3/config
