@@ -1,6 +1,7 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+test 2
 # Entr commands to listen to files
 exec_always --no-startup-id echo .i3/config | entr chezmoi add .i3/config
 exec_always --no-startup-id echo .config/nvim/init.vim | entr chezmoi add .config/nvim/init.vim
