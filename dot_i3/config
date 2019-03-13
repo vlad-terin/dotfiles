@@ -1,8 +1,7 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-how are you
-# Entr commands to listen to files
+# Entr commands to listen to files for syncing dotfiles and packages
 exec_always --no-startup-id echo .i3/config | entr chezmoi add .i3/config
 exec_always --no-startup-id echo .config/nvim/init.vim | entr chezmoi add .config/nvim/init.vim
 exec_always --no-startup-id echo .config/fish/config.fish | entr chezmoi add .config/fish/config.fish
@@ -12,6 +11,9 @@ exec_always --no-startup-id echo .scripts/* | entr chezmoi add .scripts/*
 exec_always --no-startup-id echo .scripts/i3cmds/* | entr chezmoi add .scripts/i3cmds/*
 exec_always --no-startup-id echo .emoji | entr chezmoi add .emoji
 exec_always --no-startup-id echo .Xresources | entr chezmoi add .Xresources
+
+# Listen Chezmoi for autocommit
+exec_always --no-startup-id find .local/share/chezmoi | entr ~/.scripts/autocommit.sh
 
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
