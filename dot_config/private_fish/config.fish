@@ -1,6 +1,6 @@
 #!/usr/bin/fish
 
-set -U PATH '/home/axi/.fzf/bin' '/usr/local/bin' '/usr/bin' '/bin' '/usr/local/sbin' '/usr/bin/site_perl' '/usr/bin/vendor_perl' '/usr/bin/core_perl' '~/.scripts/i3cmds/'
+set -U PATH '/home/axi/.fzf/bin' '/usr/local/bin' '/usr/bin' '/bin' '/usr/local/sbin' '/usr/bin/site_perl' '/usr/bin/vendor_perl' '/usr/bin/core_perl' '~/.scripts/i3cmds/' '~/.scripts/'
 
 
 alias r ranger
