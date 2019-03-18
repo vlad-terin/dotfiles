@@ -1,14 +1,23 @@
 #!/usr/bin/fish
 
-set -U PATH '/home/axi/.fzf/bin' '/usr/local/bin' '/usr/bin' '/bin' '/usr/local/sbin' '/usr/bin/site_perl' '/usr/bin/vendor_perl' '/usr/bin/core_perl' '~/.scripts/i3cmds/' '~/.scripts/'
+set -U PATH '/home/axi/.fzf/bin' '/usr/local/bin' '/usr/bin' '/bin' '/usr/local/sbin' '/usr/bin/site_perl' '/usr/bin/vendor_perl' '/usr/bin/core_perl' '~/.scripts/i3cmds/'
+
+function fu
+functions -v (functions | fzf | xargs echo)
+end
+
+function d
+rm (cd ~/.config/fish/functions | ls ~/.config/fish/functions | fzf)
+end
 
 
 alias r ranger
 alias w "feh --randomize --bg-fill ~/Pictures/wallpapers/*"
 abbr v nvim
 abbr k fkill
-abbr a todo.sh add
+abbr t todo.sh add
 abbr y "echo \"\" >> yay"
+abbr a "alias -s"
 
 # alias ag "ag --path-to-ignore ~/.ignore"
 set -U FZF_LEGACY_KEYBINDINGS 0
@@ -66,5 +75,3 @@ end
 function fssh -d "Fuzzy-find ssh host via ag and ssh into it"
   ag --ignore-case '^host [^*]' ~/.ssh/config | cut -d ' ' -f 2 | fzf | read -l result; and ssh "$result"
 end
-
-

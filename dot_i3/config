@@ -15,17 +15,20 @@ exec_always --no-startup-id echo .Xresources | entr chezmoi add .Xresources
 # Listen Chezmoi for autocommit
 exec_always --no-startup-id find .local/share/chezmoi | entr ~/.scripts/autocommit.sh
 
+# Map tab to esc
+exec_always --no-startup-id ~/.scripts/remaps
+
+
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
 # Runs the key remapping scripts
-exec --no-startup-id remaps
 # Emoji
 bindsym $mod+e		exec --no-startup-id ~/.scripts/i3cmds/dmenuunicode
 
 # Screencap
-exec --no-startup-id flameshot
+exec_always --no-startup-id flameshot
 bindsym --release Print exec --no-startup-id "flameshot gui"
 bindsym --release $mod+Shift+n exec "flameshot screen -c"
 
