@@ -14,13 +14,12 @@ rm (cd ~/.config/fish/functions | ls ~/.config/fish/functions | fzf)
 end
 
 
-alias r ranger
-alias w "feh --randomize --bg-fill ~/Pictures/wallpapers/*"
 abbr v nvim
 abbr k fkill
 abbr t todo.sh add
 abbr y "echo \"\" >> yay"
 abbr a "alias -s"
+abbr r ranger
 
 # alias ag "ag --path-to-ignore ~/.ignore"
 set -U FZF_LEGACY_KEYBINDINGS 0
