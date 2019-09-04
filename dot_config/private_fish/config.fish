@@ -3,7 +3,7 @@
 set -U PATH '/home/axi/.fzf/bin' '/usr/local/bin' '/usr/bin' '/bin' '/usr/local/sbin' '/usr/bin/site_perl' '/usr/bin/vendor_perl' '/usr/bin/core_perl' '~/.scripts/i3cmds/' '~/.scripts'
 
 set -gx EDITOR nvim
-set -gx BROWSER firefox
+set -gx BROWSER chromium
 
 function fu
 functions -v (functions | fzf | xargs echo)
@@ -27,7 +27,6 @@ set -U FZF_LEGACY_KEYBINDINGS 0
 
 set -U FZF_DEFAULT_COMMAND "ag --hidden --ignore .git -l -g """
 set -U FZF_FIND_FILE_COMMAND "find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
-set -U FZF_FIND_FILE_COMMAND "ag -l --hidden --ignore .git . \$dir 2> /dev/null """
 set -U FZF_CTRL_T_COMMAND "find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
 set -U FZF_OPEN_COMMAND "find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
 
