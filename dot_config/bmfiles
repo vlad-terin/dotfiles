@@ -1,0 +1,7 @@
+bf	~/.config/bmfiles
+bd	~/.config/bmdirs
+mw  ~/Dropbox/notes/meetingwork.md
+cf  ~/.config/fish/config.fish
+rpi  ~/Repos/public_html/index.html
+enn  ~/etc/nginx/nginx.conf
+cv  ~/.config/nvim/init.vim

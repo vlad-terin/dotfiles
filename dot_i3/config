@@ -1,6 +1,12 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+
+bindsym $mod+Shift+y		exec --no-startup-id ~/.scripts/i3cmds/i3resize left
+bindsym $mod+Shift+u		exec --no-startup-id ~/.scripts/i3cmds/i3resize down
+bindsym $mod+Shift+i		exec --no-startup-id ~/.scripts/i3cmds/i3resize up
+bindsym $mod+Shift+o		exec --no-startup-id ~/.scripts/i3cmds/i3resize right
+
 # Entr commands to listen to files for syncing dotfiles and packages
 exec_always --no-startup-id echo .i3/config | entr chezmoi add .i3/config
 exec_always --no-startup-id echo .config/nvim/init.vim | entr chezmoi add .config/nvim/init.vim
@@ -11,12 +17,19 @@ exec_always --no-startup-id echo .scripts/* | entr chezmoi add .scripts/*
 exec_always --no-startup-id echo .scripts/i3cmds/* | entr chezmoi add .scripts/i3cmds/*
 exec_always --no-startup-id echo .emoji | entr chezmoi add .emoji
 exec_always --no-startup-id echo .Xresources | entr chezmoi add .Xresources
+exec_always --no-startup-id npm run dev | entr chrome http://localhost:5000
 
 # Listen Chezmoi for autocommit
 exec_always --no-startup-id find .local/share/chezmoi | entr ~/.scripts/autocommit.sh
 
+exec_always --no-startup-id ~/.scripts/restartcompton
+
+#exec_always --no-startup-id ~/.scripts/learning
+
 # Map tab to esc
 exec_always --no-startup-id ~/.scripts/remaps
+
+bindsym $mod+Shift+s exec i3-layout-manager
 
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
@@ -62,7 +75,9 @@ bindsym $mod+Return exec --no-startup-id st
 bindsym $mod+w kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_recency
+bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+g exec --no-startup-id ~/.scripts/searchgoogle
+bindsym $mod+s exec --no-startup-id ~/.scripts/search 
 # bindsym $mod+d exec --no-startup-id rofi -show drun
 # bindsym $mod+o exec --no-startup-id rofi -show window
 
@@ -86,14 +101,15 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec palemoon
+bindsym $mod+r exec --no-startup-id st -e 'ranger'
+bindsym $mod+c exec chromium
 bindsym $mod+F3 exec pcmanfm
 #bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
-bindsym $mod+F5 exec terminal -e 'mocp'
-#bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+bindsym $mod+n exec st -e 'nvim'
+bindsym $mod+Shift+t exec --no-startup-id pkill compton
+bindsym $mod+t exec --no-startup-id ~/.scripts/restartcompton
+#bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
@@ -133,7 +149,7 @@ bindsym $mod+semicolon workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+n split h;exec notify-send 'tile horizontally'
+# bindsym $mod+n split h;exec notify-send 'tile horizontally'
 bindsym $mod+v split v;exec notify-send 'tile vertically'
 bindsym $mod+q split toggle
 
@@ -141,8 +157,8 @@ bindsym $mod+q split toggle
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
+# bindsym $mod+s layout stacking
+# bindsym $mod+t layout tabbed
 #bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -152,7 +168,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # toggle sticky
-bindsym $mod+Shift+s sticky toggle
+# bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container
 # bindsym $mod+a focus parent
@@ -275,7 +291,7 @@ mode "$mode_system" {
 }
 
 # Resize window (you can also use the mouse for that)
-bindsym $mod+r mode "resize"
+# bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
         # Pressing left will shrink the window’s width.

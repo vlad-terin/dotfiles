@@ -1,0 +1,14 @@
+# vim: filetype=sh
+alias h="cd ~/ && ls -a" \
+do="cd ~/Documents && ls -a" \
+d="cd ~/Dropbox && ls -a" \
+D="cd ~/Downloads && ls -a" \
+cf="cd ~/.config && ls -a" \
+p="cd ~/Dropbox/projects && ls -a" \
+bf="$EDITOR ~/.config/bmfiles" \
+bd="$EDITOR ~/.config/bmdirs" \
+mw="$EDITOR ~/Dropbox/notes/meetingwork.md" \
+cf="$EDITOR ~/.config/fish/config.fish" \
+rpi="$EDITOR ~/Repos/public_html/index.html" \
+enn="$EDITOR ~/etc/nginx/nginx.conf" \
+cv="$EDITOR ~/.config/nvim/init.vim" \

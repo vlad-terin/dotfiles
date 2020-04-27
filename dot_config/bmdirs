@@ -1,0 +1,7 @@
+# You can add comments to these files with #
+h	~/
+do ~/Documents
+d	~/Dropbox
+D	~/Downloads
+cf	~/.config
+p	  ~/Dropbox/projects
