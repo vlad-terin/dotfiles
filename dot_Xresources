@@ -54,15 +54,17 @@ XTerm*selectToClipboard: true
 *color7:                          #d8d8d8
 *color15:                         #f8f8f8
 
-Xcursor.theme: xcursor-breeze
+Xcursor.theme: Adwaita
 Xcursor.size:                     0
 
 ! URxvt.font: xft:Iosevka Term:size=15
 ! URxvt.boldFont: xft:Iosevka Term:style=bold:size=15
 
 st.font:	Liberation Mono:pixelsize=28:antialias=true:autohint=true;
-st.alpha: 0.8
+st.alpha: 0.8 
 st.color0: #111
+st.transparent: true 
+st.shading: 20
 
 ! alternative font settings with 'terminus':
 ! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
@@ -77,6 +79,9 @@ URxvt*cursorBlink:                true
 URxvt*background:                 black
 URxvt*foreground:                 grey
 URxvt*saveLines:                  5000
+URxvt.transparent: true 
+URxvt.shading: 20
+
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
 ! URxvt*inheritPixmap:            true

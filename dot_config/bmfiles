@@ -1,7 +1,9 @@
 bf	~/.config/bmfiles
 bd	~/.config/bmdirs
 mw  ~/Dropbox/notes/meetingwork.md
-cf  ~/.config/fish/config.fish
+cf  ~/.config/fish/conf.d/abbr.fish
 rpi  ~/Repos/public_html/index.html
 enn  ~/etc/nginx/nginx.conf
 cv  ~/.config/nvim/init.vim
+sc   ~/Repos/my-surfingkey-config/surfingkeys-config.js
+

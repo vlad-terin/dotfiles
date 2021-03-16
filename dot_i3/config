@@ -1,6 +1,6 @@
 # i3 config file (v4)
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 bindsym $mod+Shift+y		exec --no-startup-id ~/.scripts/i3cmds/i3resize left
 bindsym $mod+Shift+u		exec --no-startup-id ~/.scripts/i3cmds/i3resize down
@@ -17,7 +17,11 @@ exec_always --no-startup-id echo .scripts/* | entr chezmoi add .scripts/*
 exec_always --no-startup-id echo .scripts/i3cmds/* | entr chezmoi add .scripts/i3cmds/*
 exec_always --no-startup-id echo .emoji | entr chezmoi add .emoji
 exec_always --no-startup-id echo .Xresources | entr chezmoi add .Xresources
+exec_always --no-startup-id echo .config/bmdirs | entr chezmoi add .config/bmdirs 
+exec_always --no-startup-id echo .config/bmfiles | entr chezmoi add .config/bmfiles 
 exec_always --no-startup-id npm run dev | entr chrome http://localhost:5000
+exec_always --no-startup-id echo ~/Dropbox/projects/vladterin/index.html | entr -s 'scp * root@vladterin.com:/var/www/whiz'
+exec_always --no-startup-id echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.bashrc
 
 # Listen Chezmoi for autocommit
 exec_always --no-startup-id find .local/share/chezmoi | entr ~/.scripts/autocommit.sh
@@ -102,11 +106,11 @@ bindsym $mod+Ctrl+m exec pavucontrol
 
 # Start Applications
 bindsym $mod+r exec --no-startup-id st -e 'ranger'
-bindsym $mod+c exec chromium
-bindsym $mod+F3 exec pcmanfm
+bindsym $mod+n exec --no-startup-id st -e 'nvim'
+# bindsym $mod+t exec --no-startup-id st -e 'nvim +NV'
+bindsym $mod+c exec firefox
 #bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
-bindsym $mod+n exec st -e 'nvim'
 bindsym $mod+Shift+t exec --no-startup-id pkill compton
 bindsym $mod+t exec --no-startup-id ~/.scripts/restartcompton
 #bindsym $mod+Ctrl+t exec --no-startup-id compton -b
