@@ -1,0 +1,21 @@
+ping vladterin.com
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@dotdoggo.com
+apt update
+apt upgrade
+apt install nginx certbot python-certbot-nginx
+cp /etc/nginx/sites-available/default /etc/nginx/sites-available/dotdoggo
+vim /etc/nginx/sites-available/dotdoggo
+:g/^\s*#/d
+ln -s /etc/nginx/sites-available/dotdoggo /etc/nginx/sites-enabled/
+mkdir /var/www/dotdoggo
+cd /var/www/dotdoggo
+vim index.html
+systemctl reload nginx
+ ~
+cd ~
+systemctl reload nginx
+systemctl start nginx
+systemctl reload nginx
+cd /var/www/vladterin/
+certbot --nginx
+
