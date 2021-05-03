@@ -58,3 +58,12 @@ yay -S slack-desktop
 
 echo '### Installing zoom'
 yay -S zoom 
+
+echo '### Installing nvm'
+yay -S nvm
+
+echo '### Installing node'
+yay -S nodejs
+
+echo '### Installing backlight'
+yay -S xorg-xbacklight
